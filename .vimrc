@@ -80,9 +80,16 @@ set nu	             " показывать номера строк
 set scrolloff=5	     " 5 строк при скролле за раз
 
 " отключаем бэкапы и своп-файлы
-set nobackup 	     " no backup files
-set nowritebackup    " only in case you don't want a backup file while editing
-set noswapfile 	     " no swap files
+"set nobackup 	     " no backup files
+"set nowritebackup    " only in case you don't want a backup file while editing
+"set noswapfile 	     " no swap files
+
+" Настроки складирования backup и swap файлов
+set dir=~/.vimtmp/swap
+set dir=~/.vimtmp/backups
+
+" Размер истории правок файла
+set undolevels=10000
 
 " прячем панельки
 set guioptions-=m   " меню
@@ -92,6 +99,12 @@ set guioptions-=r   " скроллбары
 " настройка на Tab
 set smarttab
 set tabstop=4
+
+set pastetoggle=
+set smartindent
+
+" изменяем табуляцию для html
+autocmd FileType html set tabstop=2|set shiftwidth=2|set noexpandtab
 
 "  при переходе за границу в 80 символов в Ruby/Python/js/C/C++ подсвечиваем
 "  на темном фоне текст
